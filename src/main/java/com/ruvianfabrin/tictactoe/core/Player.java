@@ -20,9 +20,9 @@ public class Player {
     }
 
 
-    public void play() throws InvalidMoveException{
+    public boolean play() throws InvalidMoveException{
         Move move = inputMove();
-        board.play(this, move);
+        return board.play(this, move);
     }
 
     public String getName() {
