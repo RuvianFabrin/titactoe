@@ -1,8 +1,11 @@
 package com.ruvianfabrin.tictactoe.core;
 
 import com.ruvianfabrin.tictactoe.Constants;
+import com.ruvianfabrin.tictactoe.score.FileScoreManager;
 import com.ruvianfabrin.tictactoe.score.ScoreManager;
 import com.ruvianfabrin.tictactoe.ui.UI;
+
+import java.io.IOException;
 
 public class Game {
     Board board = new Board();
@@ -10,7 +13,7 @@ public class Game {
     private int currentPlayerIndex = -1;
     private ScoreManager scoreManager;
 
-    public void play(){
+    public void play() throws IOException{
         scoreManager = createScoremanager();
 
         UI.printGameTitle();
@@ -74,8 +77,8 @@ public class Game {
         return players[currentPlayerIndex];
     }
 
-    private ScoreManager createScoremanager(){
+    private ScoreManager createScoremanager() throws IOException {
 
-        return null;
+        return new FileScoreManager();
     }
 }
